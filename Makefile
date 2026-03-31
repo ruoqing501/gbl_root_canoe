@@ -6,7 +6,9 @@ clean:
 	rm -rf dist || true
 	mkdir dist
 patch: clean
-	python tools/extractfv.py ./images/abl.img -o ./dist
+	gcc -O2 -o ./tools/extractfv ./tools/extractfv.c -llzma
+	./tools/extractfv ./images/abl.img -o ./dist
+	rm ./tools/extractfv
 	mv ./dist/LinuxLoader.efi ./dist/ABL_original.efi
 	gcc -o tools/patch_abl tools/patch_abl.c
 	./tools/patch_abl ./dist/ABL_original.efi ./dist/ABL.efi > ./dist/patch_log.txt
@@ -64,6 +66,17 @@ build_generic: clean
 	fi
 	cp edk2/Build/RELEASE_CLANG35/AARCH64/LinuxLoader.efi ./dist/generic_superfastboot.efi
 	ls -l ./dist
+
+build_patcher_android: clean
+	$(NDK_PATH)/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android31-clang tools/patch_abl.c -o dist/patch_abl_android
+	bash ./tools/build_extractfv_android.sh
+build_module: build_patcher_android
+	mv dist/patch_abl_android magisk_module/bin/patch_abl
+	mv dist/extractfv_android magisk_module/bin/extractfv
+	mkdir release || true
+	cd magisk_module && zip -r ../release/$(DIST_NAME).zip ./
+	rm magisk_module/bin/patch_abl
+	rm magisk_module/bin/extractfv
 
 test_exploit:
 	@echo "This script is used to test the ABL exploit. Please make sure you tested before ota."

@@ -3,7 +3,9 @@ cd "$(dirname "$0")"
 # Clean previous outputs
 rm -rf ./extracted || true
 # Run the extraction script
-python ../tools/extractfv.py 001_myron_abl.elf -o ./extracted >> /dev/null 2>&1
+gcc -O2 -o ../tools/extractfv ../tools/extractfv.c -llzma
+../tools/extractfv 001_myron_abl.elf -o ./extracted >> /dev/null 2>&1
+rm ../tools/extractfv
 # Run the patching script with disabled Patch 2-5
 gcc -o patch_abl ../tools/patch_abl.c -D DISABLE_PATCH_2 -D DISABLE_PATCH_3 -D DISABLE_PATCH_4 -D DISABLE_PATCH_5 -D DISABLE_PATCH_6
 #run the patching tool

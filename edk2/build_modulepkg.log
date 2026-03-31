@@ -1,5 +1,5 @@
 Build environment: Linux-6.17.0-14-generic-x86_64-with-glibc2.42
-Build start time: 18:42:45, Mar.30 2026
+Build start time: 12:29:27, Mar.31 2026
 
 WORKSPACE        = /home/wyb/gbl_root_canoe/edk2
 EDK_TOOLS_PATH   = /home/wyb/gbl_root_canoe/edk2/BaseTools
@@ -1275,25 +1275,71 @@ AutoGen.s:3:2: warning: inconsistent use of MD5 checksums
         .file   1 "/home/wyb/gbl_root_canoe/edk2" "MdePkg/Include/AArch64/ProcessorBind.h"
         ^
 "/usr/bin/clang"  -g -fshort-wchar -fno-strict-aliasing -Wall -Werror -Wno-array-bounds -c -include AutoGen.h -mlittle-endian -fno-short-enums -save-temps -fverbose-asm -fsigned-char -ffunction-sections -fdata-sections -fomit-frame-pointer -fno-builtin -Wno-address -fno-asynchronous-unwind-tables -target aarch64-linux-gnu -mcmodel=small -mstrict-align -Wno-parentheses-equality -Wno-tautological-compare -Wno-tautological-constant-out-of-range-compare -Wno-empty-body -D=__FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -O2 -Wno-shift-negative-value -fstack-protector-all -Wno-varargs -fno-common -Wno-misleading-indentation -Wno-unknown-warning-option  -mtune=cortex-a53 -Oz         -DZ_SOLO -DPRODUCT_NAME=\"canoe\" -DENABLE_UPDATE_PARTITIONS_CMDS -DENABLE_BOOT_CMD -DENABLE_DEVICE_CRITICAL_LOCK_UNLOCK_CMDS -DAUTO_PATCH_ABL -DDISABLE_PRINT -DINIT_BIN='"/init"' -DVERIFIED_BOOT_ENABLED -DBASE_ADDRESS=0x80000000 -DREMOVE_CARVEOUT_REGION -DQSPA_BOOTCONFIG_ENABLE -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/./LinuxLoader.obj -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/hibernation -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader -I/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG -I/home/wyb/gbl_root_canoe/edk2/ArmPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include/AArch64 -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/sysdeps/include -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include/Library -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Library /home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/LinuxLoader.c
-In file included from /home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/LinuxLoader.c:856:
-/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/../../../../tools/patchlib.h:566:1: error: non-void function does not return a value [-Werror,-Wreturn-type]
-  566 | }
-      | ^
-1 error generated.
-make[2]: *** [GNUmakefile:398：/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/LinuxLoader.obj] 错误 1
+LinuxLoader.s:3:2: warning: inconsistent use of MD5 checksums
+        .file   1 "/home/wyb/gbl_root_canoe/edk2" "MdePkg/Include/AArch64/ProcessorBind.h"
+        ^
+"/usr/bin/clang"  -g -fshort-wchar -fno-strict-aliasing -Wall -Werror -Wno-array-bounds -c -include AutoGen.h -mlittle-endian -fno-short-enums -save-temps -fverbose-asm -fsigned-char -ffunction-sections -fdata-sections -fomit-frame-pointer -fno-builtin -Wno-address -fno-asynchronous-unwind-tables -target aarch64-linux-gnu -mcmodel=small -mstrict-align -Wno-parentheses-equality -Wno-tautological-compare -Wno-tautological-constant-out-of-range-compare -Wno-empty-body -D=__FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -O2 -Wno-shift-negative-value -fstack-protector-all -Wno-varargs -fno-common -Wno-misleading-indentation -Wno-unknown-warning-option  -mtune=cortex-a53 -Oz         -DZ_SOLO -DPRODUCT_NAME=\"canoe\" -DENABLE_UPDATE_PARTITIONS_CMDS -DENABLE_BOOT_CMD -DENABLE_DEVICE_CRITICAL_LOCK_UNLOCK_CMDS -DAUTO_PATCH_ABL -DDISABLE_PRINT -DINIT_BIN='"/init"' -DVERIFIED_BOOT_ENABLED -DBASE_ADDRESS=0x80000000 -DREMOVE_CARVEOUT_REGION -DQSPA_BOOTCONFIG_ENABLE -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/hibernation/HibernationImageLoader.obj -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/hibernation -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader -I/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG -I/home/wyb/gbl_root_canoe/edk2/ArmPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include/AArch64 -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/sysdeps/include -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include/Library -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Library /home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/hibernation/HibernationImageLoader.c
+Trim --asm-file -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/hibernation/Jumptokernel.i -i /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/inc.lst /home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/hibernation/Jumptokernel.s
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:31: SyntaxWarning: invalid escape sequence '\s'
+  gLineControlDirective = re.compile('^\s*#(?:line)?\s+([0-9]+)\s+"*([^"]*)"')
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:33: SyntaxWarning: invalid escape sequence '\s'
+  gTypedefPattern = re.compile("^\s*typedef\s+struct(\s+\w+)?\s*[{]*$", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:35: SyntaxWarning: invalid escape sequence '\s'
+  gPragmaPattern = re.compile("^\s*#pragma\s+pack", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:37: SyntaxWarning: invalid escape sequence '\s'
+  gTypedef_SinglePattern = re.compile("^\s*typedef", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:39: SyntaxWarning: invalid escape sequence '\s'
+  gTypedef_MulPattern = re.compile("^\s*(typedef)?\s+(struct|union)(\s+\w+)?\s*[{]*$", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:54: SyntaxWarning: invalid escape sequence '\s'
+  gAslIncludePattern = re.compile("^(\s*)[iI]nclude\s*\(\"?([^\"\(\)]+)\"\)", re.MULTILINE)
+"/usr/bin/clang"  -E -x assembler-with-cpp -include /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/AutoGen.h -Wno-shift-negative-value -fstack-protector-all -Wno-varargs -fno-common -Wno-misleading-indentation -Wno-unknown-warning-option  -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/hibernation -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader -I/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG -I/home/wyb/gbl_root_canoe/edk2/ArmPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include/AArch64 -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/sysdeps/include -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include/Library -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Library /home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/hibernation/Jumptokernel.s > /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/hibernation/Jumptokernel.ii
+Trim --trim-long --source-code -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/hibernation/Jumptokernel.iiii /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/hibernation/Jumptokernel.ii
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:31: SyntaxWarning: invalid escape sequence '\s'
+  gLineControlDirective = re.compile('^\s*#(?:line)?\s+([0-9]+)\s+"*([^"]*)"')
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:33: SyntaxWarning: invalid escape sequence '\s'
+  gTypedefPattern = re.compile("^\s*typedef\s+struct(\s+\w+)?\s*[{]*$", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:35: SyntaxWarning: invalid escape sequence '\s'
+  gPragmaPattern = re.compile("^\s*#pragma\s+pack", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:37: SyntaxWarning: invalid escape sequence '\s'
+  gTypedef_SinglePattern = re.compile("^\s*typedef", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:39: SyntaxWarning: invalid escape sequence '\s'
+  gTypedef_MulPattern = re.compile("^\s*(typedef)?\s+(struct|union)(\s+\w+)?\s*[{]*$", re.MULTILINE)
+/home/wyb/gbl_root_canoe/edk2/BaseTools/BinWrappers/PosixLike/../../Source/Python/Trim/Trim.py:54: SyntaxWarning: invalid escape sequence '\s'
+  gAslIncludePattern = re.compile("^(\s*)[iI]nclude\s*\(\"?([^\"\(\)]+)\"\)", re.MULTILINE)
+"/usr/bin/clang" -c -x assembler -imacros /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/AutoGen.h -target aarch64-linux-gnu   -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/hibernation/Jumptokernel.obj -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/hibernation -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader -I/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG -I/home/wyb/gbl_root_canoe/edk2/ArmPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdePkg/Include/AArch64 -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/include -I/home/wyb/gbl_root_canoe/edk2/EmbeddedPkg/Library/LibUfdt/sysdeps/include -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg -I/home/wyb/gbl_root_canoe/edk2/ArmPlatformPkg/Include -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg -I/home/wyb/gbl_root_canoe/edk2/MdeModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Include/Library -I/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Library /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/hibernation/Jumptokernel.iiii
+clang: warning: argument unused during compilation: '-imacros /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/AutoGen.h' [-Wunused-command-line-argument]
+rm -f /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/LinuxLoader.lib
+"/usr/bin/llvm-ar" -cr /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/LinuxLoader.lib  @/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/object_files.lst
+"/usr/bin/clang" -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.dll -target aarch64-linux-gnu -Wl,--emit-relocs -nostdlib -Wl,--gc-sections -Wl,--discard-none -u _ModuleEntryPoint -Wl,-e,_ModuleEntryPoint,-Map,/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.map -z max-page-size=0x20 -z max-page-size=0x1000 -Wl,-Ttext=0x0 -Wl,--no-relax -Wl,--apply-dynamic-relocs -Wl,--start-group,,@/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT/static_library_files.lst,--end-group -Wl,--script=/home/wyb/gbl_root_canoe/edk2/BaseTools/Scripts/GccBase.lds -Wl,--defsym=PECOFF_HEADER_SIZE=0x228 -fuse-ld=/usr/bin//ld.lld
+"/usr/bin/llvm-objcopy" --rename-section=.text=.text,alloc,code,readonly /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.dll
+cp -f /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.dll /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.debug
+cp -f /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/*.map /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT
+GenFw -e UEFI_APPLICATION -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.efi /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.dll
+cp -f /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.efi /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/OUTPUT
+cp -f /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.efi /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64
+test -f /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.map && cp -f /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.map /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/Ffs/f536d559-459f-48fa-8bbc-43b554ecae8dLinuxLoader/f536d559-459f-48fa-8bbc-43b554ecae8d.map
+GenSec -s EFI_SECTION_USER_INTERFACE -n LinuxLoader -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/Ffs/f536d559-459f-48fa-8bbc-43b554ecae8dLinuxLoader/f536d559-459f-48fa-8bbc-43b554ecae8dSEC1.ui
+test -e /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.efi && GenSec -s EFI_SECTION_PE32 -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/Ffs/f536d559-459f-48fa-8bbc-43b554ecae8dLinuxLoader/f536d559-459f-48fa-8bbc-43b554ecae8dSEC2.1.pe32 /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader/DEBUG/LinuxLoader.efi
+GenFfs -t EFI_FV_FILETYPE_APPLICATION -g f536d559-459f-48fa-8bbc-43b554ecae8d -o /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/Ffs/f536d559-459f-48fa-8bbc-43b554ecae8dLinuxLoader/f536d559-459f-48fa-8bbc-43b554ecae8d.ffs -oi /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/Ffs/f536d559-459f-48fa-8bbc-43b554ecae8dLinuxLoader/f536d559-459f-48fa-8bbc-43b554ecae8dSEC1.ui -oi /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/Ffs/f536d559-459f-48fa-8bbc-43b554ecae8dLinuxLoader/f536d559-459f-48fa-8bbc-43b554ecae8dSEC2.1.pe32
 make[2]: 离开目录“/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader”
 
+Fd File Name:QCOMMODULE_EFI (/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/QCOMMODULE_EFI.fd)
 
-build.py...
- : error 7000: Failed to execute command
-	make tbuild [/home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/AARCH64/QcomModulePkg/Application/LinuxLoader/LinuxLoader]
+Generate Region at Offset 0x0
+   Region Size = 0x3D000
+   Region Name = FV
 
+Generating FVMAIN_COMPACT FV
 
-build.py...
- : error F002: Failed to build module
-	/home/wyb/gbl_root_canoe/edk2/QcomModulePkg/Application/LinuxLoader/LinuxLoader.inf [AARCH64, CLANG35, RELEASE]
+Generating FVMAIN FV
 
-- Failed -
-Build end time: 18:42:57, Mar.30 2026
+GUID cross reference file can be found at /home/wyb/gbl_root_canoe/edk2/Build/RELEASE_CLANG35/FV/Guid.xref
+
+FV Space Information
+FVMAIN [99%Full] 200896 total, 200880 used, 16 free
+FVMAIN_COMPACT [17%Full] 249856 total, 42720 used, 207136 free
+
+- Done -
+Build end time: 12:29:40, Mar.31 2026
 Build total time: 00:00:13
 
