@@ -1,3 +1,5 @@
+#DO NOT USE abl_original.efi It is just intermediate result from patcher which contains the official abl efi progress which will boot efisp causing bootloop
+
 # build with CLAND/LLD version 20
 # GBL Root Canoe
 
