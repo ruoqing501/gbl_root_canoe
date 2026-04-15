@@ -9,7 +9,7 @@ if [ -z "$MODDIR" ]; then
 fi
 RUNTIME_DIR="$MODDIR/tmp"
 BY_NAME_DIR="/dev/block/by-name"
-IMAGE_NAMES="abl xbl xbl_config xbl_ac_config xbl_ramdump"
+IMAGE_NAMES="abl"
 LOG_FILE="$RUNTIME_DIR/flash.log"
 STATE_FILE="$RUNTIME_DIR/state"
 MESSAGE_FILE="$RUNTIME_DIR/message"
