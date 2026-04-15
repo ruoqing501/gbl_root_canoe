@@ -530,6 +530,43 @@ INT32 patch_adrl_unlocked_to_locked_verify(CHAR8* buffer, INT32 size, UINT64 loa
     }
     return patched;
 }
+CHAR8 keyword []="is not allowed in Lock State";
+BOOLEAN check_sub_string(CHAR8* str,CHAR8* keyword){
+    INT32 len = 0;
+    INT32 str_len = 0;
+    while(str[str_len]) str_len++;
+    while(keyword[len]) len++;
+    for (INT32 i = 0; i <= str_len - len; ++i) {
+        if (memcmp_patcher(str + i, keyword, len) == 0) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+BOOLEAN patch_string_jump(CHAR8* buffer, INT32 size) {
+    BOOLEAN patched = FALSE;
+    for(int i = 0; i < size - 4; i += 4) {
+        DecodedInst d = decode_at(buffer, i);
+        INT64 jmp=0;
+        if(get_JUMP_target(&d,i,&jmp)){
+            if (jmp < 0 || jmp + 8 > size) continue;
+            DecodedInst a0 = decode_at(buffer, jmp);
+            DecodedInst a1 = decode_at(buffer, jmp + 4);
+            if (a0.type != INST_ADRP || a1.type != INST_ADD_X_IMM) continue;
+            if (a1.rt != a0.rt || a1.rn != a0.rt) continue;
+            INT64 off0 = calc_adrl_file_offset(buffer, jmp, 0);
+            if (off0 < 0 || off0 >= size) continue;
+            CHAR8* str = buffer + off0;
+            if(check_sub_string(str, keyword)){
+                Print_patcher("  String: %s\n", str);
+                //nop the jump instruction
+                write_instr(buffer, i, NOP); // NOP
+                patched = TRUE;
+            }
+        }
+    }
+    return patched;
+}
 
 BOOLEAN PatchBuffer(CHAR8* data, INT32 size) {
     #ifndef DISABLE_PATCH_1
@@ -548,8 +585,10 @@ BOOLEAN PatchBuffer(CHAR8* data, INT32 size) {
         return FALSE;
     }
     #endif
-
-
+    #ifndef DISABLE_PATCH_6
+    if (patch_string_jump(data, size) != 0)
+    Print_patcher("Warning: Failed to patch string jump\n");
+    #endif
     INT32 offset = -1;
     INT8 lock_register_num = -1;
     INT32 num_patches = patch_abl_bootstate(data, size, &lock_register_num, &offset);

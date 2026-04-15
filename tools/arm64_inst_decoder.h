@@ -38,8 +38,10 @@ typedef enum {
     INST_CMP_W_IMM,         /* CMP Wn, #imm  (SUBS WZR)     */
     INST_CSET_W,            /* CSET Wd, cond (CSINC)         */
     INST_UBFM_W,            /* UBFM Wd, Wn, #r, #s          */
+    INST_CBNZ_X,            /* CBNZ Xt, label                */
+    INST_CBZ_X,             /* CBZ Xt, label                 */
 } InstType;
-
+#define NOP 0xD503201F  /* NOP is an alias for HINT #0x1F */
 typedef struct {
     InstType type;
     UINT32   raw;       /* 原始 32-bit 编码 */
@@ -51,7 +53,12 @@ typedef struct {
     UINT8    shift;     /* ADD shift (0 or 12)                     */
     UINT8    cond;      /* condition code for CSET etc.            */
 } DecodedInst;
-
+static INT32 decode_imm19(UINT32 raw) {
+    INT32 imm19 = (INT32)((raw >> 5) & 0x7FFFF);
+    if (imm19 & 0x40000)
+        imm19 |= (INT32)0xFFF80000; // sign extend bit 18 -> bit 31
+    return imm19 << 2;
+}
 static UINT32 read_instr(const CHAR8* buf, INT32 off) {
     return (UINT8)buf[off]
          | ((UINT8)buf[off+1] << 8)
@@ -257,6 +264,40 @@ static BOOLEAN decode_inst_ubfm_w(UINT32 raw, DecodedInst* out) {
     return TRUE;
 }
 
+static BOOLEAN decode_inst_cbz_cbnz(UINT32 raw, DecodedInst* out) {
+    // bits [30:25] = 011010 是 CBZ/CBNZ 家族共有的
+    if ((raw & 0x7E000000) != 0x34000000) return FALSE;
+
+    BOOLEAN is64  = (raw >> 31) & 1;  // bit 31: sf
+    BOOLEAN isNZ  = (raw >> 24) & 1;  // bit 24: 0=CBZ, 1=CBNZ
+
+    if (isNZ)
+        out->type = is64 ? INST_CBNZ_X : INST_CBNZ_W;
+    else
+        out->type = is64 ? INST_CBZ_X : INST_CBZ_W;
+
+    out->raw  = raw;
+    out->rt   = raw & 0x1F;
+    out->simm = decode_imm19(raw);
+
+    return TRUE;
+}
+
+static BOOLEAN get_JUMP_target(DecodedInst* inst, INT64 instoff, INT64* target) {
+    switch (inst->type) {
+        case INST_B:
+        case INST_BL:
+        case INST_CBZ_W:
+        case INST_CBZ_X:
+        case INST_CBNZ_W:
+        case INST_CBNZ_X:
+            *target = instoff + inst->simm;
+            return TRUE;
+        default:
+            return FALSE;
+    }
+}
+
 /* 解码优先级表 —— 按照编码空间重叠度排序 */
 typedef BOOLEAN (*DecodeFunc)(UINT32, DecodedInst*);
 
@@ -277,6 +318,7 @@ static const DecodeFunc g_decoders[] = {
     decode_inst_movz_w,
     decode_inst_cmp_w_imm,
     decode_inst_ubfm_w,
+    decode_inst_cbz_cbnz,
 };
 
 static const INT32 g_num_decoders = (INT32)(sizeof(g_decoders) / sizeof(g_decoders[0]));
